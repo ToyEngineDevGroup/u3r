@@ -27,19 +27,19 @@ void render(U3R::RenderObject * obj); // 绘制
 ### Class U3R::Camera
 
 ```cpp
-void look_at(U3R::Vector4 p, U3R::Vector4 t);
+void look_at(U3R::Vector p, U3R::Vector t);
 ```
 
 ### Class U3R::Light
 
 ```cpp
-void set_position(U3R::Vector4 p);
+void set_position(U3R::Vector p);
 void set_light(U3R::Color ambient, U3R::Color diffuse, U3R::Number shininess);
 ```
 
 ### Class U3R::RenderObject
 
-表示一个可绘制的多边形对象（只包含几何数据）。
+表示一个可绘制的多边形对象。
 
 无公共属性。
 
@@ -70,6 +70,14 @@ void set_transform(U3R::Transform * transform); // 设置变换
 ~RenderObject();
 ```
 
+如果认为以上限制太多了,可以使用这种方法:
+```cpp
+void add_input(unsigned int location unsigned int count);
+void set_input(unsigned int location, const U3R::Number * data);
+void set_uniform_vector(unsigned int location, U3R::Vector v);
+void set_uniform_transform(unsigned int location, U3R::Transform t);
+void set_uniform_sampler(unsigned int sampler, U3R::Texture tex);
+```
 ### Class U3R::Shader
 
 无公共属性。
